@@ -15,27 +15,63 @@ function insertCodeButton() {
 
 // Opens code pane
 
-$(document).on("click", ".CM-open-editor", function () {
-  let active;
-  const $activePagesButton = $(
-    '.active[data-automation-id="left-sidebar-pages-button"]'
-  );
-  const $activePreviewButton = $(".bem-TopBar_Body_PreviewButton-active");
-  const $pageButton = $(".bem-TopBar_Body_ContextLens_Name")[0];
-  const settingsButton = ".bem-List_Row.isSelected .bem-Link";
+const settingsButtonSelector = ".bem-List_Row.isSelected .bem-Link";
+const settingsFormSelector = '[data-automation-id="page-settings-form"]';
+const pageButtonSelector = ".bem-TopBar_Body_ContextLens_Name";
+const activePagesButtonSelector =
+  '.active[data-automation-id="left-sidebar-pages-button"]';
+const activePreviewButtonSelector = ".bem-TopBar_Body_PreviewButton-active";
 
-  if (!$activePagesButton.length && !$activePreviewButton.length) {
-    $pageButton.click();
-    // injectStyles();
+$(document).on("click", ".CM-open-editor", function () {
+  const activePagesButton = $(activePagesButtonSelector);
+  const activePreviewButton = $(activePreviewButtonSelector);
+  const pageButton = $(pageButtonSelector);
+
+  if (activePreviewButton.length) {
+    return;
   }
 
-  setTimeout(function () {
-    $(settingsButton).click();
-  }, 200);
+  if (!activePagesButton.length) {
+    pageButton.click();
+    setTimeout(function () {
+      openSettings();
+      addStyles();
+    }, 200);
+  } else {
+    toggleSettings();
+  }
 });
 
-function injectStyles() {
-  $("head").append(
-    '<style id="CM-styles">.bem-Panel .bem-Pane:first-child{display:none !important;} data-automation-id="pages-settings"] > div > div:not(:last){display:none !important;}</style>'
-  );
+$('[data-automation-id="close-page-settings-button"]').on("click", function () {
+  toggleSettings();
+  removeStyles();
+});
+
+function openSettings(toggle) {
+  const settingsButton = $(settingsButtonSelector);
+  const settingsForm = $(settingsFormSelector);
+
+  if (!settingsForm.length) {
+    settingsButton.click();
+  }
+}
+
+function toggleSettings() {
+  const settingsButton = $(settingsButtonSelector);
+  const settingsForm = $(settingsFormSelector);
+  const pageButton = $(pageButtonSelector);
+
+  if (!settingsForm.length) {
+    settingsButton.click();
+  } else {
+    pageButton.click();
+  }
+}
+
+function addStyles() {
+  $("body").addClass("CM--active");
+}
+
+function removeStyles() {
+  $("body").removeClass("CM--active");
 }
