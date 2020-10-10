@@ -1,5 +1,5 @@
 {
-  "name": "CodeMode",
+  "name": "CodeMode for Webflow",
   "version": "1.0",
   "description": "SOME code never hurt anyone...",
   "permissions": ["activeTab", "declarativeContent"],
@@ -17,17 +17,11 @@
   ],
   "page_action": {
     "default_icon": {
-      "16": "images/get_started16.png",
-      "32": "images/get_started32.png",
-      "48": "images/get_started48.png",
-      "128": "images/get_started128.png"
+      "128": "images/128.png"
     }
   },
   "icons": {
-    "16": "images/get_started16.png",
-    "32": "images/get_started32.png",
-    "48": "images/get_started48.png",
-    "128": "images/get_started128.png"
+    "128": "images/128.png"
   },
   "manifest_version": 2
 }

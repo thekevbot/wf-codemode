@@ -85,7 +85,7 @@ function saveChanges() {
   }
 }
 
-function openSettings(toggle) {
+function openSettings() {
   const settingsButton = $(settingsButtonSelector);
   const settingsForm = $(settingsFormSelector);
 
@@ -101,6 +101,7 @@ function toggleSettings() {
 
   if (!settingsForm.length) {
     settingsButton.click();
+    addStyles();
   } else {
     pageButton.click();
   }
