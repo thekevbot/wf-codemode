@@ -21,6 +21,10 @@ const pageButtonSelector = ".bem-TopBar_Body_ContextLens_Name";
 const activePagesButtonSelector =
   '.active[data-automation-id="left-sidebar-pages-button"]';
 const activePreviewButtonSelector = ".bem-TopBar_Body_PreviewButton-active";
+const closeButtonSelector = "[data-automation-id='close-page-settings-button']";
+const discardButtonSelector = "[data-automation-id='discard-changes']";
+const saveButtonSelector = "[data-automation-id='save-page-settings-button']";
+const saveChangesButtonSelector = "[data-automation-id='save-changes']";
 
 $(document).on("click", ".CM-open-editor", function () {
   const activePagesButton = $(activePagesButtonSelector);
@@ -36,16 +40,50 @@ $(document).on("click", ".CM-open-editor", function () {
     setTimeout(function () {
       openSettings();
       addStyles();
-    }, 200);
+    }, 50);
   } else {
     toggleSettings();
   }
 });
 
-$('[data-automation-id="close-page-settings-button"]').on("click", function () {
-  toggleSettings();
-  removeStyles();
+$(document).on("click", closeButtonSelector, function () {
+  const activePagesButton = $(activePagesButtonSelector);
+  setTimeout(function () {
+    if ($('[data-automation-id="unsaved-changes-confirm-modal"]').length) {
+      return;
+    }
+    if ($("body").hasClass("CM--active")) {
+      removeStyles();
+      activePagesButton.click();
+    }
+  }, 200);
 });
+
+$(document).on("click", discardButtonSelector, function () {
+  const activePagesButton = $(activePagesButtonSelector);
+  if ($("body").hasClass("CM--active")) {
+    removeStyles();
+    activePagesButton.click();
+  }
+});
+
+$(document).on("click", saveButtonSelector, function () {
+  saveChanges();
+});
+
+$(document).on("click", saveChangesButtonSelector, function () {
+  saveChanges();
+});
+
+function saveChanges() {
+  const activePagesButton = $(activePagesButtonSelector);
+  if ($("body").hasClass("CM--active")) {
+    setTimeout(function () {
+      removeStyles();
+      activePagesButton.click();
+    }, 200);
+  }
+}
 
 function openSettings(toggle) {
   const settingsButton = $(settingsButtonSelector);

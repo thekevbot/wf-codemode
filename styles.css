@@ -24,3 +24,31 @@
   > div:first-child {
   display: none !important;
 }
+
+.CM--active [data-automation-id="save-page-options-button"] {
+  display: none !important;
+}
+
+.CM--active [data-automation-id="save-page-settings-button"] {
+  border-right: 1px solid #333333 !important;
+  border-top-right-radius: 2px !important;
+  border-bottom-right-radius: 2px !important;
+}
+
+.CM--active .bem-Pane_Head {
+  position: relative !important;
+}
+
+.CM--active .bem-Pane_Head::after {
+  content: "Code Mode";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #2ad986;
+  color: #333333;
+  border-radius: 2px;
+  padding: 4px 8px;
+  border: 1px solid #333333;
+}
