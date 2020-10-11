@@ -2,7 +2,7 @@
   "name": "CodeMode for Webflow",
   "version": "0.0.1",
   "description": "SOME code never hurt anyone...",
-  "permissions": ["activeTab", "declarativeContent"],
+  "permissions": ["activeTab"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
