@@ -52,3 +52,63 @@
   padding: 4px 8px;
   border: 1px solid #333333;
 }
+
+.CM--active [data-automation-id="page-settings-form"],
+.CM--active [data-automation-id="pages-settings"],
+.CM--active [data-automation-id="pages-settings"] > div,
+.CM--active [data-automation-id="pages-settings"] > div > div:nth-child(5) {
+  height: 100%;
+}
+
+.CM--active .bem-Heading_Text {
+  display: none !important;
+  /* width: 100%; */
+}
+
+.CM--active
+  [data-automation-id="pages-settings"]
+  > div
+  > div:nth-child(5)
+  > div:nth-child(2) {
+  display: flex !important;
+  height: 100%;
+  padding: 5px !important;
+  flex-wrap: wrap;
+}
+
+.CM--active
+  [data-automation-id="pages-settings"]
+  > div
+  > div:nth-child(5)
+  > div:nth-child(2)
+  > div {
+  width: 50%;
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.CM--active
+  [data-automation-id="pages-settings"]
+  > div
+  > div:nth-child(5)
+  > div:nth-child(2)
+  > div
+  > .bem-Field {
+  flex-grow: 1;
+}
+
+.CM--active
+  [data-automation-id="pages-settings"]
+  > div
+  > div:nth-child(5)
+  > div:nth-child(2)
+  > div
+  > .bem-Field
+  > .bem-Field {
+  height: 100%;
+}
+
+.CM--active .bem-TokenInput {
+  height: calc(100% - 24px);
+}
