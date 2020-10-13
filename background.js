@@ -1,4 +1,1 @@
-// Respond to the click on extension icon
-// chrome.browserAction.onClicked.addListener(function (tab) {
-//   chrome.tabs.executeScript(null, { file: "main.js" });
-// });
+// Runs on pages that match https://webflow.com/designer/*

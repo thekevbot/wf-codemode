@@ -25,6 +25,8 @@ const closeButtonSelector = "[data-automation-id='close-page-settings-button']";
 const discardButtonSelector = "[data-automation-id='discard-changes']";
 const saveButtonSelector = "[data-automation-id='save-page-settings-button']";
 const saveChangesButtonSelector = "[data-automation-id='save-changes']";
+const codeMirrorSelector =
+  ".CM--active .bem-TokenInput > div, .CM--active .CodeMirror.cm-s-webflow-material";
 
 $(document).on("click", ".CM-open-editor", function () {
   const activePagesButton = $(activePagesButtonSelector);
@@ -75,6 +77,12 @@ $(document).on("click", saveChangesButtonSelector, function () {
   saveChanges();
 });
 
+$(window).on("resize", function () {
+  if ($("body").hasClass("CM--active")) {
+    calculateHeight(0);
+  }
+});
+
 function saveChanges() {
   const activePagesButton = $(activePagesButtonSelector);
   if ($("body").hasClass("CM--active")) {
@@ -91,6 +99,7 @@ function openSettings() {
 
   if (!settingsForm.length) {
     settingsButton.click();
+    calculateHeight(100);
   }
 }
 
@@ -113,4 +122,13 @@ function addStyles() {
 
 function removeStyles() {
   $("body").removeClass("CM--active");
+}
+
+function calculateHeight(delay) {
+  setTimeout(function () {
+    // let newHeight = $(".w-codemirror").outerHeight() - 4;
+    let newHeight = $(".bem-Pane_Body").outerHeight() - 38;
+    $(".w-codemirror > div").height(newHeight);
+    $(".CodeMirror").height(newHeight);
+  }, delay);
 }
