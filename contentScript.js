@@ -126,7 +126,6 @@ function removeStyles() {
 
 function calculateHeight(delay) {
   setTimeout(function () {
-    // let newHeight = $(".w-codemirror").outerHeight() - 4;
     let newHeight = $(".bem-Pane_Body").outerHeight() - 38;
     $(".w-codemirror > div").height(newHeight);
     $(".CodeMirror").height(newHeight);
