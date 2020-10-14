@@ -1,1 +1,14 @@
-// Runs on pages that match https://webflow.com/designer/*
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+    chrome.declarativeContent.onPageChanged.addRules([
+      {
+        conditions: [
+          new chrome.declarativeContent.PageStateMatcher({
+            pageUrl: { hostEquals: "webflow.com" },
+          }),
+        ],
+        actions: [new chrome.declarativeContent.ShowPageAction()],
+      },
+    ]);
+  });
+});

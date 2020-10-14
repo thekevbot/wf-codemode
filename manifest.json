@@ -2,20 +2,21 @@
   "name": "CodeMode for Webflow",
   "version": "1.0.0",
   "description": "SOME code never hurt anyone...",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "declarativeContent"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
     {
-      "matches": ["https://webflow.com/*"],
+      "matches": ["https://webflow.com/design/*"],
       "js": ["lib/jquery-3.5.1.min.js", "contentScript.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
   ],
   "page_action": {
+    "default_popup": "popup.html",
     "default_icon": {
       "128": "images/128.png"
     }
