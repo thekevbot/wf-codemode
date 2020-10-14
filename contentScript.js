@@ -42,7 +42,7 @@ $(document).on("click", ".CM-open-editor", function () {
     setTimeout(function () {
       openSettings();
       addStyles();
-    }, 50);
+    }, 100);
   } else {
     toggleSettings();
   }
