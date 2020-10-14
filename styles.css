@@ -40,7 +40,7 @@
 }
 
 .CM--active .bem-Pane_Head::after {
-  content: "Code Mode";
+  content: "CodeMode";
   display: inline-block;
   position: absolute;
   top: 50%;
