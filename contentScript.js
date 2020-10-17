@@ -29,22 +29,15 @@ const codeMirrorSelector =
   ".CM--active .bem-TokenInput > div, .CM--active .CodeMirror.cm-s-webflow-material";
 
 $(document).on("click", ".CM-open-editor", function () {
-  const activePagesButton = $(activePagesButtonSelector);
-  const activePreviewButton = $(activePreviewButtonSelector);
-  const pageButton = $(pageButtonSelector);
+  toggleEditor();
+});
 
-  if (activePreviewButton.length) {
-    return;
-  }
-
-  if (!activePagesButton.length) {
-    pageButton.click();
-    setTimeout(function () {
-      openSettings();
-      addStyles();
-    }, 100);
-  } else {
-    toggleSettings();
+$(window).keydown(function (e){
+  console.log(e.metaKey);
+  if ((e.metaKey || e.ctrlKey) && e.keyCode == 192) { /*ctrl+` or command+`*/
+      toggleEditor();
+      e.preventDefault();
+      return false;
   }
 });
 
@@ -90,6 +83,27 @@ function saveChanges() {
       removeStyles();
       activePagesButton.click();
     }, 200);
+  }
+}
+
+function toggleEditor() {
+  const activePagesButton = $(activePagesButtonSelector);
+  const activePreviewButton = $(activePreviewButtonSelector);
+  const pageButton = $(pageButtonSelector);
+
+  if (activePreviewButton.length) {
+    return;
+  }
+
+  if (!activePagesButton.length) {
+    pageButton.click();
+    setTimeout(function () {
+      openSettings();
+      addStyles();
+      calculateHeight(0);
+    }, 100);
+  } else {
+    toggleSettings();
   }
 }
 
