@@ -33,8 +33,7 @@ $(document).on("click", ".CM-open-editor", function () {
 });
 
 $(window).keydown(function (e){
-  console.log(e.metaKey);
-  if ((e.metaKey || e.ctrlKey) && e.keyCode == 192) { /*ctrl+` or command+`*/
+  if ((e.altKey || e.ctrlKey) && e.keyCode == 65) { /*alt/option+`*/
       toggleEditor();
       e.preventDefault();
       return false;
