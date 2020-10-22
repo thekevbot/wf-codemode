@@ -33,7 +33,7 @@ $(document).on("click", ".CM-open-editor", function () {
 });
 
 $(window).keydown(function (e){
-  if ((e.altKey || e.ctrlKey) && e.keyCode == 65) { /*alt/option+A*/
+  if (e.altKey && e.keyCode == 65) { /*alt/option+A*/
       toggleEditor();
       e.preventDefault();
       return false;
