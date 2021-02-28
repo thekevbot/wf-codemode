@@ -1,8 +1,8 @@
 {
   "name": "CodeMode for Webflow",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SOME code never hurt anyone...",
-  "permissions": ["activeTab", "declarativeContent"],
+  "permissions": ["declarativeContent"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
