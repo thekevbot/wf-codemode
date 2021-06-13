@@ -18,6 +18,7 @@ function insertCodeButton() {
 const settingsButtonSelector = ".bem-List_Row.isSelected .bem-Link";
 const settingsFormSelector = '[data-automation-id="page-settings-form"]';
 const pageButtonSelector = ".bem-TopBar_Body_ContextLens_Name";
+const dynamicPageSelector = ".bem-TopBar_Body_ContextLens_Name_Value-dynamic";
 const activePagesButtonSelector =
   '.active[data-automation-id="left-sidebar-pages-button"]';
 const activePreviewButtonSelector = ".bem-TopBar_Body_PreviewButton-active";
@@ -33,7 +34,8 @@ $(document).on("click", ".CM-open-editor", function () {
 });
 
 $(window).keydown(function (e){
-  if (e.altKey && e.keyCode == 65) { /*alt/option+A*/
+  // alt+A / option+A
+  if (e.altKey && e.keyCode == 65) {
       toggleEditor();
       e.preventDefault();
       return false;
@@ -131,10 +133,17 @@ function toggleSettings() {
 
 function addStyles() {
   $("body").addClass("CM--active");
+  if ($(dynamicPageSelector).length) {
+    $("body").addClass("CM--cms-active");
+  } else {
+    $("body").addClass("CM--static-active");
+  }
 }
 
 function removeStyles() {
   $("body").removeClass("CM--active");
+  $("body").removeClass("CM--cms-active");
+  $("body").removeClass("CM--static-active");
 }
 
 function calculateHeight(delay) {

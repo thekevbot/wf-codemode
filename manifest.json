@@ -1,6 +1,6 @@
 {
   "name": "CodeMode for Webflow",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "SOME code never hurt anyone...",
   "permissions": ["declarativeContent"],
   "background": {

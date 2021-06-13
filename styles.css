@@ -1,7 +1,4 @@
-.CM--active
-  [data-automation-id="overlay"]:nth-child(2)
-  .bem-Panel
-  .bem-Pane:nth-child(2) {
+.CM--active [data-automation-id="overlay"]:nth-child(2) .bem-Panel .bem-Pane:nth-child(2){
   position: fixed;
   top: 0;
   right: 0;
@@ -10,18 +7,18 @@
 }
 
 .CM--active [data-automation-id="page-duplicate-button"],
+.CM--active [data-automation-id="page-duplicate-button"] + button,
 .CM--active [data-automation-id="pages-settings"] > div > div:nth-child(1),
 .CM--active [data-automation-id="pages-settings"] > div > div:nth-child(2),
 .CM--active [data-automation-id="pages-settings"] > div > div:nth-child(3),
-.CM--active [data-automation-id="pages-settings"] > div > div:nth-child(4) {
+.CM--active [data-automation-id="pages-settings"] > div > div:nth-child(4),
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(5),
+.CM--cms-active [data-automation-id="pages-settings"] > div[style*="padding: 16px"] {
   display: none !important;
 }
 
-.CM--active
-  [data-automation-id="pages-settings"]
-  > div
-  > div:nth-child(5)
-  > div:first-child {
+.CM--static-active [data-automation-id="pages-settings"] > div > div:nth-child(5) > div:first-child,
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(6) > div:first-child {
   display: none !important;
 }
 
@@ -29,7 +26,7 @@
   display: none !important;
 }
 
-.CM--active [data-automation-id="save-page-settings-button"] {
+.CM--active [data-automation-id="save-page-button"] {
   border-right: 1px solid #333333 !important;
   border-top-right-radius: 2px !important;
   border-bottom-right-radius: 2px !important;
@@ -55,57 +52,39 @@
 
 .CM--active [data-automation-id="page-settings-form"],
 .CM--active [data-automation-id="pages-settings"],
-.CM--active [data-automation-id="pages-settings"] > div,
-.CM--active [data-automation-id="pages-settings"] > div > div:nth-child(5) {
+.CM--static-active [data-automation-id="pages-settings"] > div,
+.CM--static-active [data-automation-id="pages-settings"] > div > div:nth-child(5),
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(6) {
   height: 100%;
 }
 
 .CM--active .bem-Heading_Text {
   display: none !important;
-  /* width: 100%; */
 }
 
-.CM--active
-  [data-automation-id="pages-settings"]
-  > div
-  > div:nth-child(5)
-  > div:nth-child(2) {
+.CM--static-active [data-automation-id="pages-settings"] > div > div:nth-child(5) > div:nth-child(2),
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(6) > div:nth-child(2) {
   display: flex !important;
   height: 100%;
   padding: 5px !important;
   flex-wrap: wrap;
 }
 
-.CM--active
-  [data-automation-id="pages-settings"]
-  > div
-  > div:nth-child(5)
-  > div:nth-child(2)
-  > div {
+.CM--static-active [data-automation-id="pages-settings"] > div > div:nth-child(5) > div:nth-child(2) > div,
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(6) > div:nth-child(2) > div {
   width: 50%;
   padding: 0 5px;
   display: flex;
   flex-direction: column;
 }
 
-.CM--active
-  [data-automation-id="pages-settings"]
-  > div
-  > div:nth-child(5)
-  > div:nth-child(2)
-  > div
-  > .bem-Field {
+.CM--static-active [data-automation-id="pages-settings"] > div > div:nth-child(5) > div:nth-child(2) > div > .bem-Field,
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(6) > div:nth-child(2) > div > .bem-Field {
   flex-grow: 1;
 }
 
-.CM--active
-  [data-automation-id="pages-settings"]
-  > div
-  > div:nth-child(5)
-  > div:nth-child(2)
-  > div
-  > .bem-Field
-  > .bem-Field {
+.CM--static-active [data-automation-id="pages-settings"] > div > div:nth-child(5) > div:nth-child(2) > div > .bem-Field > .bem-Field,
+.CM--cms-active [data-automation-id="pages-settings"] > div > div:nth-child(6) > div:nth-child(2) > div > .bem-Field > .bem-Field {
   height: 100%;
 }
 
